@@ -4,7 +4,7 @@ class Person:
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-        self.people[self.name] = self
+        # self.people[self.name] = self
 
 
 def create_person_list(people: list) -> list:
@@ -14,6 +14,7 @@ def create_person_list(people: list) -> list:
             person_obj.wife = person["wife"]
         elif person.get("husband"):
             person_obj.husband = person["husband"]
+        Person.people[person["name"]] = person_obj
 
     for person_obj in Person.people.values():
         if hasattr(person_obj, "wife"):
