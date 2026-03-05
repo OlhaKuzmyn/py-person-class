@@ -10,9 +10,9 @@ class Person:
 def create_person_list(people: list) -> list:
     for person in people:
         person_obj = Person(person["name"], person["age"])
-        if "wife" in person and person["wife"] is not None:
+        if person.get("wife"):
             person_obj.wife = person["wife"]
-        elif "husband" in person and person["husband"] is not None:
+        elif person.get("husband"):
             person_obj.husband = person["husband"]
 
     for person_obj in Person.people.values():
