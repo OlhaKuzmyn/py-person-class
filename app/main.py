@@ -14,6 +14,7 @@ def create_person_list(people: list) -> list:
             person_obj.wife = person["wife"]
         elif "husband" in person and person["husband"] is not None:
             person_obj.husband = person["husband"]
+
     for person_obj in Person.people.values():
         for person_ in Person.people.values():
             if (hasattr(person_, "wife")
