@@ -16,11 +16,8 @@ def create_person_list(people: list) -> list:
             person_obj.husband = person["husband"]
 
     for person_obj in Person.people.values():
-        for person_ in Person.people.values():
-            if (hasattr(person_, "wife")
-                    and person_.wife == person_obj.name):
-                person_.wife = person_obj
-            elif (hasattr(person_, "husband")
-                  and person_.husband == person_obj.name):
-                person_.husband = person_obj
+        if hasattr(person_obj, "wife"):
+            person_obj.wife = Person.people.get(person_obj.wife)
+        elif hasattr(person_obj, "husband"):
+            person_obj.husband = Person.people.get(person_obj.husband)
     return list(Person.people.values())
