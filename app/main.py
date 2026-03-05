@@ -4,10 +4,10 @@ class Person:
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-        # self.people[self.name] = self
 
 
 def create_person_list(people: list) -> list:
+    Person.people.clear()
     for person in people:
         person_obj = Person(person["name"], person["age"])
         if person.get("wife"):
